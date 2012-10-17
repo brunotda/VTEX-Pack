@@ -1,0 +1,10 @@
+$(function(){
+	$(".giftListButtonTpl").vtexGiftlist();
+});
+
+
+
+<div class="giftListTpl">
+	<span class="giftListButtonTpl">Lista de Desejos</span>
+	<div class="giftListWrap"><vtex.cmc:giftListInsertSku giftListTypeIdWishList="1"/></div>
+</div>
