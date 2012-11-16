@@ -1,19 +1,19 @@
 #VTEX - Pacote de plugins para controles da plataforma#
 
-*Estes plugins tem como funÁ„o facilitar tarefas repetitivas que s„o feitas durante a implantaÁ„o de uma loja.*
+*Estes plugins tem como fun√ß√£o facilitar tarefas repetitivas que s√£o feitas durante a implanta√ß√£o de uma loja.*
 
->*Extensıes da plataforma VTEX s„o plugins criados por desenvolvedores de interface ou pelo VTEX Lab (LaboratÛrio de InovaÁıes da VTEX) que podem ser inseridas em sua loja. Existem extensıes gratuitas com cÛdigo aberto -  Open Source - e extensıes pagas.  Indicamos que a instalaÁ„o seja realizada pelos profissionais e empresas certificados pela VTEX. Vale ressaltar que qualquer profissional de CSS, JavaScript e HTML pode tambÈm executar esta tarefa.*
+>*Extens√µes da plataforma VTEX s√£o plugins criados por desenvolvedores de interface ou pelo VTEX Lab (Laborat√≥rio de Inova√ß√µes da VTEX) que podem ser inseridas em sua loja. Existem extens√µes gratuitas com c√≥digo aberto -  Open Source - e extens√µes pagas.  Indicamos que a instala√ß√£o seja realizada pelos profissionais e empresas certificados pela VTEX. Vale ressaltar que qualquer profissional de CSS, JavaScript e HTML pode tamb√©m executar esta tarefa.*
 ----------
-ConheÁa mais sobre cada componente deste conjunto de funcionalidades:
+Conhe√ßa mais sobre cada componente deste conjunto de funcionalidades:
 
 ** - VTEX Pack**
 
-Um  pacote de funÁıes automatizadas que facilitam a implantaÁ„o. Auxiliando com os popups da plataforma, newsletter, lista de desejos e resumo do carrinho.
+Um  pacote de fun√ß√µes automatizadas que facilitam a implanta√ß√£o. Auxiliando com os popups da plataforma, newsletter, lista de desejos e resumo do carrinho.
 
 [Mais Detalhes](tree/master/VTEXPack)
 
-** - SKU SeleÁ„o Ativa**
+** - SKU Sele√ß√£o Ativa**
 
-Plugin que verifica se os controles de SKU da p·gina de produto j· est„o com suas funÁıes atribuÌdas.
+Plugin que verifica se os controles de SKU da p√°gina de produto j√° est√£o com suas fun√ß√µes atribu√≠das.
 
 [Mais Detalhes](tree/master/SKU_selecao_ativa)
