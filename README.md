@@ -9,8 +9,8 @@ Conheça mais sobre cada componente deste conjunto de funcionalidades:
 
 **- VTEX Pack**  
 Um  pacote de funções automatizadas que facilitam a implantação. Auxiliando com os popups da plataforma, newsletter, lista de desejos e resumo do carrinho.  
-[Mais Detalhes](tree/master/VTEXPack)
+[Mais Detalhes](/caljp13/VTEX-plugins-controle/tree/master/VTEXPack)
 
 **- SKU Seleção Ativa**  
 Plugin que verifica se os controles de SKU da página de produto já estão com suas funções atribuídas.  
-[Mais Detalhes](tree/master/SKU_selecao_ativa)
+[Mais Detalhes](/caljp13/VTEX-plugins-controle/tree/master/SKU_selecao_ativa)
