@@ -14,7 +14,7 @@
 		
 		if(!$this.length) return $this;
 		
-		extTitle="Like o meter";
+		extTitle="SKU Seleção Ativa";
 		log=function(msg,type){
 			if(typeof console=="object")
 				console.log("["+extTitle+" - "+(type||"Erro")+"] "+msg);
