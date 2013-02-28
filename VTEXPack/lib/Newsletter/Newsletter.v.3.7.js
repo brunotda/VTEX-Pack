@@ -35,7 +35,7 @@ jQuery.fn.vtexNews2=function(opts)
 	options=jQuery.extend(defaults, opts);
 	_console=("object"===typeof(console));
 	
-		// Suporte as funcionalidades antigas
+	// Suporte as funcionalidades antigas
 	if(!options.showInPopup)
 		options.validationMethod="div";
 	
