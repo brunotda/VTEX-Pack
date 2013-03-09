@@ -1,8 +1,7 @@
 /**
- * Vtex Pack
- * @version 2.3
- * @author Carlos Vinicius [ QUATRO DIGITAL ]
- * @license MIT
+* Vtex Pack
+* @version 2.21
+* @date 2012-10-18
 */
 
 /**
@@ -16,22 +15,19 @@ jQuery.fn.vtexCart=function(i){var b=jQuery(this);if(1>b.length)return b;log=fun
 jQuery.ajax({url:"/no-cache/QuantidadeItensCarrinho.aspx",success:e.cartInfoAjaxSuccess,error:e.cartInfoAjaxError})},localhost:function(){g.html("998,75");b.html(12);e.singularPlural(12)},cartInfoAjaxSuccess:function(a){var a=jQuery(a),d=a.find(".amount-items-em").html();1>a.filter(".cartInfoWrapper").length||(c.show(),g.html(a.find(".total-cart-em").html()),b.html(d),e.singularPlural(d))},cartInfoAjaxError:function(){log("N\u00e3o foi poss\u00edvel fazer a requisi\u00e7\u00e3o p/ obter os dados do carrinho.");
 -1<document.location.host.indexOf("localhost")&&c.show()},singularPlural:function(a){a=parseInt(a,10);isNaN(a)?log("O valor obtido para calcular o plural/singular n\u00e3o \u00e9 um n\u00famero!"):1===a?h.hide().filter(".singular").show():h.hide().filter(".plural").show()}};e.getCartInfo()});d.callback();return b};
 /**
- * Newslleter customizada para a plataforma VTEX
- * @author Carlos Vinicius [ QUATRO DIGITAL ]
- * @version 4.1
- * @license MIT
- */
+* Newslleter V2
+* @author Carlos Vinicius
+* @version 3.6
+* @date 2012-08-21
+*/
 "function"!==typeof String.prototype.trim&&(String.prototype.trim=function(){return this.replace(/^\s+|\s+$/g,"")});
-(function(j){j.fn.vtexNews=j.fn.vtexNews2=function(s){var f,a,n,k;k=function(a,b){"object"===typeof console&&("undefined"!==typeof b&&"alerta"===b.toLowerCase()?console.warn("[VtexNews] "+a):"undefined"!==typeof b&&"info"===b.toLowerCase()?console.info("[VtexNews] "+a):console.error("[VtexNews] "+a))};f=jQuery(this);if(1>f.length)return f;a=jQuery.extend({defaultName:"Digite seu nome...",defaultEmail:"Digite seu e-mail...",nameField:".vtexNewsName",emailField:".vtexNewsEmail",btn:".vtexNewsButton",
-elementError:".nv2_messageError",elementSuccess:".nv2_messageSuccess",validationMethod:"popup",getAttr:"alt",setDefaultName:!0,checkNameExist:!0,showInPopup:!0,animation:null,animateSpeed:100,animateDistance:15,animateRepeat:3,animateFieldSuccess:".vtexNewsAnimateFieldSuccess",timeHideSuccessMsg:3E3,successCallback:function(){},submitCallback:function(){}},s);a.showInPopup||(a.validationMethod="div");null!==a.animation?a.validationMethod="animateField":"animateField"==a.validationMethod&&(a.animation=
-"leftRight");if("popup"==a.validationMethod&&"function"!==typeof jQuery.fn.vtexPopUp2)return k("O popUp2 n\u00e3o foi encontrado. Adicione o Plugin de PopUp2."),f;n=function(h){var b,d,c;d=0;b=function(){h.animate({left:"-="+a.animateDistance},a.animateSpeed,function(){h.animate({left:"+="+a.animateDistance},a.animateSpeed,function(){d<a.animateRepeat&&b();d++})})};c=function(){h.fadeTo(a.animateSpeed,0.2,function(){h.fadeTo(a.animateSpeed,1,function(){d<a.animateRepeat&&c();d++})})};"leftRight"==
-a.animation?b():"blink"==a.animation&&c()};f.each(function(){var h,b,d,c,f,l,m;b=jQuery(this);d=b.find(a.nameField);c=b.find(a.emailField);f=b.find(a.btn);l=b.find(a.elementError);m=b.find(a.elementSuccess);1>d.length&&a.checkNameExist&&k("Campo de nome, n\u00e3o encontrado ("+d.selector+"). Ser\u00e1 atribuido um valor padr\u00e3o.","info");if(1>c.length)return k("Campo de e-mail, n\u00e3o encontrado ("+c.selector+")"),b;if(1>f.length)return k("Bot\u00e3o de envio, n\u00e3o encontrado ("+f.selector+
-")"),b;if("animateField"!=a.validationMethod&&(1>m.length||1>l.length))return k("A(s) mensagem(ns) de erro e/ou sucesso esta(m) faltando \n ("+m.selector+", "+l.selector+")"),b;a.setDefaultName&&d.is("input[type=text], textarea")&&d.val(a.defaultName);c.val(a.defaultEmail);var g,p;a.checkNameExist&&(g=d.filter(":visible"),g.length&&(p=g.val(),d.is("input, textarea")&&g.bind({focus:function(){g.val()==p&&(0===g.val().search(a.defaultName.substr(0,6))||a.setDefaultName)&&g.val("")},blur:function(){""===
-g.val()&&g.val(p)}})));var q;q=c.val();c.bind({focus:function(){c.val()==q&&0===c.val().search(a.defaultEmail.substr(0,6))&&c.val("")},blur:function(){""===c.val()&&c.val(q)}});h=function(){var e,c,d,g;c=(e=b.find(a.nameField).filter("input[type=text],select,textarea").val())?e:(e=b.find(a.nameField).filter("input[type=radio]:checked, input[type=checkbox]:checked").val())?e:(e=b.find(a.nameField).attr(a.getAttr))?e:(e=b.find(a.nameField).text())?e:(e=b.find(a.nameField).find(".box-banner img:first").attr("alt"))?
-e:"Nome_Padrao";e=(b.find(a.emailField).val()||"").trim();d=b.find(a.nameField).is(":visible");d=(1>c.length||0===c.search(a.defaultName.substr(0,6)))&&(a.checkNameExist||d?d:!0);g=0>e.search(/^[a-z0-9\_\-\.]+@[a-z0-9\_\-]+(\.[a-z0-9\_\-]{2,})+$/i);d||g?"animateField"==a.validationMethod?(d&&n(b.find(a.nameField)),g&&n(b.find(a.emailField))):"popup"==a.validationMethod?l.vtexPopUp2({popupType:"newsletter",popupClass:"popupNewsletterError"}):(l.slideDown().bind("click",function(){j(this).slideUp()}),
-setTimeout(function(){l.slideUp()},1800)):(f.attr("disabled","disabled"),jQuery.ajax({url:"/no-cache/Newsletter.aspx",type:"POST",data:{newsletterClientEmail:e,newsletterClientName:c,newsInternalCampaign:"newsletter:opt-in",newsInternalPage:(document.location.pathname||"/").replace(/\//g,"_"),newsInternalPart:"newsletter"},success:function(){var c,d,e;f.removeAttr("disabled");"popup"==a.validationMethod?m.vtexPopUp2({popupType:"newsletter",popupClass:"popupNewsletterSuccess"}):"animateField"!=a.validationMethod&&
-m.slideDown().bind("click",function(){j(this).slideUp()});e=b.find(a.emailField);a.setDefaultName&&b.find(a.nameField).is("input, textarea")&&b.find(a.nameField).val(a.defaultName);c=function(){e.val(a.defaultEmail)};"animateField"==a.validationMethod?(e.val(b.find(a.animateFieldSuccess).val()||"Obrigado!!!"),e.addClass("vtexNewsSuccess"),d=setTimeout(function(){e.removeClass("vtexNewsSuccess");c();e.unbind("focus.vtexNews")},a.timeHideSuccessMsg),e.bind("focus.vtexNews",function(){e.removeClass("vtexNewsSuccess");
-clearTimeout(d);j(this).val("");j(this).unbind("focus.vtexNews")})):c();a.successCallback()}}),a.submitCallback(e,c))};f.bind("click",function(){h()});var r=function(a){if(13==(a.keyCode?a.keyCode:a.which))a.preventDefault(),h()};d.filter("input, textarea").bind("keydown",r);c.bind("keydown",r)});return f}})(jQuery);
+jQuery.fn.vtexNews2=function(l){var d=jQuery(this);if(d.length<1)return d;var b=jQuery.extend({defaultName:"Digite seu nome...",defaultEmail:"Digite seu e-mail...",nameField:".vtexNewsName",emailField:".vtexNewsEmail",btn:".vtexNewsButton",elementError:".nv2_messageError",elementSuccess:".nv2_messageSuccess",setDefaultName:true,checkNameExist:true,getAttr:"alt",showInPopup:true,successCallback:function(){}},l),e="object"===typeof console;if("function"!==typeof jQuery.fn.vtexPopUp2){e&&console.log("[vtexNews2 - Erro] O popUp2 n\u00e3o foi encontrado. Adicione o Plugin de PopUp2.");
+return d}d.each(function(){var c=jQuery(this),f=c.find(b.nameField),d=c.find(b.emailField),g=c.find(b.btn),h=c.find(b.elementError),i=c.find(b.elementSuccess);if(f.length<1&&b.checkNameExist){e&&console.log("[vtexNews2] Campo de nome, n\u00e3o encontrado ("+f.selector+")");return c}if(d.length<1){e&&console.log("[vtexNews2] Campo de e-mail, n\u00e3o encontrado ("+d.selector+")");return c}if(g.length<1){e&&console.log("[vtexNews2] Bot\u00e3o de envio, n\u00e3o encontrado ("+g.selector+")");return c}if(i.length<
+1||h.length<1){e&&console.log("[vtexNews2] A(s) mensagem(ns) de erro e/ou sucesso esta(m) faltando \n ("+i.selector+", "+h.selector+")");return c}b.setDefaultName&&f.is("input[type=text], textarea")&&f.val(b.defaultName);d.val(b.defaultEmail);b.checkNameExist&&f.filter(":visible").queue(function(){var a=jQuery(this),c=a.val();f.is("input, textarea")&&a.bind({focus:function(){a.val()==c&&(a.val().search(b.defaultName.substr(0,6))==0||b.setDefaultName)&&a.val("")},blur:function(){a.val()==""&&a.val(c)}})});
+d.queue(function(){var a=jQuery(this),c=a.val();a.bind({focus:function(){a.val()==c&&a.val().search(b.defaultEmail.substr(0,6))==0&&a.val("")},blur:function(){a.val()==""&&a.val(c)}})});var j=function(){var a,d;d=(a=c.find(b.nameField).filter("input[type=text],select,textarea").val())?a:(a=c.find(b.nameField).filter("input[type=radio]:checked, input[type=checkbox]:checked").val())?a:(a=c.find(b.nameField).attr(b.getAttr))?a:(a=c.find(b.nameField).text())?a:(a=c.find(b.nameField).find(".box-banner img:first").attr("alt"))?
+a:"";a=(c.find(b.emailField).val()||"").trim();var e=c.find(b.nameField).is(":visible");if((d.length<1||d.search(b.defaultName.substr(0,6))==0)&&(b.checkNameExist||e?e:1)||a.search(/^[a-z0-9\_\-\.]+@[a-z0-9\_\-]+(\.[a-z0-9\_\-]{2,})+$/i)<0)if(b.showInPopup)h.vtexPopUp2({popupType:"newsletter",popupClass:"popupNewsletterError"});else{h.slideDown().bind("click",function(){$(this).slideUp()});setTimeout(function(){h.slideUp()},1800)}else{g.attr("disabled","disabled");jQuery.ajax({url:"/no-cache/Newsletter.aspx",
+type:"POST",data:{newsletterClientEmail:a,newsletterClientName:d,newsInternalCampaign:"newsletter:opt-in",newsInternalPage:(document.location.pathname||"/").replace(/\//g,"_"),newsInternalPart:"newsletter"},success:function(){g.removeAttr("disabled");b.showInPopup?i.vtexPopUp2({popupType:"newsletter",popupClass:"popupNewsletterSuccess"}):i.slideDown().bind("click",function(){$(this).slideUp()});b.setDefaultName&&f.is("input, textarea")&&c.find(b.nameField).val(b.defaultName);c.find(b.emailField).val(b.defaultEmail);
+b.successCallback()}})}};g.bind("click",j);var k=function(a){if(13==(a.keyCode?a.keyCode:a.which)){a.preventDefault();j()}};f.filter("input, textarea").bind("keydown",k);d.bind("keydown",k)});return d};
 /**
 * Vtex Gift List
 * @author Carlos Vinicius
@@ -69,19 +65,20 @@ jQuery.fn.vtexPopUp2.data={userReviewCount:0};
 
 // AUTOLOADS
 $(function(){
-	/* Carriho */ $(".cartWrapper").vtexCart();
-	/* Gift List */ $(".giftListButtonTpl").vtexGiftlist();
-	/* Newsletter */ $(".vtexNewsWrap").vtexNews2();
-	/* Quickview */ $(".quickViewLink").vtexPopUp2();
-	/* Formas de pagamento */ $(".installmentInfoTpl").vtexPopUp2();
-	/* Cálculo de frete */ $(".shipping-value").vtexPopUp2();
-	/* Inidcar a um amigo (Pág. Listas Gerenciar) */ $("td.giftlist-body-action-sendfriend #btnReferAFriend").vtexPopUp2();
+	var b=$("body");
+	/* Carriho */ b.find(".cartWrapper").vtexCart();
+	/* Gift List */ b.find(".giftListButtonTpl").vtexGiftlist();
+	/* Newsletter */ b.find(".vtexNewsWrap").vtexNews2();
+	/* Quickview */ b.find(".quickViewLink").vtexPopUp2();
+	/* Formas de pagamento */ b.find(".installmentInfoTpl").vtexPopUp2();
+	/* Cálculo de frete */ b.find(".shipping-value").vtexPopUp2();
+	/* Inidcar a um amigo (Pág. Listas Gerenciar) */ b.find("td.giftlist-body-action-sendfriend #btnReferAFriend").vtexPopUp2();
 	/* Minha conta - alterar foto */ b.filter(".minha-conta").find(".lnkAddPhoto").vtexPopUp2();
 	/* cadastro */ b.filter(".cadastro-cliente").find(".thickbox").vtexPopUp2({"popupType":"cadastroCliente"});
-	/* Indicar à um amigo (pg. Produto) */ $(".referAFriendTpl").vtexPopUp2();
-
-	$(document).ajaxStop(function(){
-		/* Publicar comentário sobre o produto */ $("#lnkPubliqueResenha[href*='javascript']").vtexPopUp2();
-		/* Quickview */ $(".quickViewLink").vtexPopUp2();
-	});
+	/* Indicar à um amigo (pg. Produto) */ b.find(".referAFriendTpl").vtexPopUp2();
+});
+$(document).ajaxStop(function(){
+	var b=$("body");
+	/* Publicar comentário sobre o produto */ b.find("#lnkPubliqueResenha[href*='javascript']").vtexPopUp2();
+	/* Quickview */ b.find(".quickViewLink").vtexPopUp2();
 });
